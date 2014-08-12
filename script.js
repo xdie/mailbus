@@ -37,11 +37,13 @@
 		
 	});
 
-	mailbusApp.controller('userController', function($scope) {
+	mailbusApp.controller('userController', function($scope, $http) {
 		$scope.message = 'Agrega borrar y modificar usuarios';
 		// Random fruit
-	
-	 
+		   $http.get('ajax/getUsers.php').success(function(data){
+		   $scope.users=data; // este es el array de nombres recuperado del servidor
+		  });
+		
 	});
 
 	mailbusApp.controller('domainController', function($scope) {
