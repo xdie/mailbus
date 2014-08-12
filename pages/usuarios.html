@@ -1,5 +1,4 @@
 
-<span ng-repeat="user in users" ng-controller="httpController">{{USER.NAME}}</span>
 <div class="jumbotron text-center">
 	<h3>Agregar otro Usuario</h3>
 	  
@@ -19,34 +18,18 @@
                   <th>Acciones</th>
                 </tr>
               </thead>
-              <tbody>
-		       </tr> <div ng-controller="userController">
-                <tr ng-repeat="user in users">
-                  <td>{{user}}</td>
-		  <td>{{user.NAME}}</td>
-                  <td>{{user.email}}</td>
-                  <td>{{user.status}}</td>
-                  <td>
-			<a ng-click="" class="pull-center">
-			<i class="glyphicon glyphicon-trash"></i></a>
-		  			
+              <tbody ng-repeat="user in users">
+	 </tr> <div ng-controller="userController">
+             
+		<tr>
+                <td>{{user.id}}</td>
+		<td>{{user.name}}</td>
+                <td>{{user.email}}</td>
+                <td>{{user.status}}</td>
+		<td><a ng-click="deleteUser(user.name)" class="pull-center"><i class="glyphicon glyphicon-trash"></i></a></td>		  			
                 </tr>
 		</div>
-                <tr>
-                  <td>2</td>
-                  <td>San Pedro</td>
-                  <td>sanpedro@elcielo.com</td>
-                  <td>Activo</td>
-                  <td>Borrar - Editar</td>
-                </tr>
-                <tr>
-                  <td>3</td>
-                  <td>San Pedro</td>
-                  <td>sanpedro@elcielo.com</td>
-                  <td>Activo</td>
-                  <td>Borrar - Editar</td>
-                </tr>
-                
+         
 
                   </tbody>
             </table>

@@ -42,17 +42,18 @@
 		// Random fruit
 		   $http.get('ajax/getUsers.php').success(function(data){
 		   $scope.users=data; // este es el array de nombres recuperado del servidor
+		   console.log(data); 
 		  });
+		$scope.deleteUser = function (user) {
+		if(confirm("Seguro que quiere borrar el usuario "+user+"? ")){
+			$http.get("ajax/deleteUser.php?ID="+id).success(function(data){
 		
+			});
+			}
+		}	
 	});
-	mailbusApp.controller('httpController', function($scope, $http) {
 		
-		// Random fruit
-		   $http.get('ajax/getUsers.php').success(function(data){
-		   $scope.users=data; // este es el array de nombres recuperado del servidor
-		  });
-		
-	});
+
 	mailbusApp.controller('domainController', function($scope) {
 		$scope.message = 'Agregar modificar dominios';
 		
