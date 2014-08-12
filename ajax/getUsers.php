@@ -1,9 +1,8 @@
 <?php
 
-echo '	{
-        "id": 1,
-        "Nombre": "San Pedro",
-        "Cuenta": "sanpedro@hotmail.com",
-        "Activada": "Si"
-	}';
+echo '{"users":[
+    {"firstName":"John", "email":"Doe"}, 
+    {"firstName":"Anna", "email":"Smith"},
+    {"firstName":"Peter", "email":"Jones"}
+]}';
 ?>

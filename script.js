@@ -33,17 +33,15 @@
 	mailbusApp.controller('mainController', function($scope) {
 		// create a message to display in our view
 		$scope.message = 'Administracion del servidor Mailbuzz';
+		
+		
 	});
 
 	mailbusApp.controller('userController', function($scope) {
 		$scope.message = 'Agrega borrar y modificar usuarios';
-		
-	        $scope.deleteTask = function (task) {
-		if(confirm("Esta seguro que quiere borrar el usuario?")){
-			$http.get("ajax/deleteUser.php?ID="+user).success(function(data){
-		 });
-	 }
-	 };
+		// Random fruit
+	
+	 
 	});
 
 	mailbusApp.controller('domainController', function($scope) {
