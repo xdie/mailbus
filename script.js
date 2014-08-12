@@ -45,7 +45,14 @@
 		  });
 		
 	});
-
+	mailbusApp.controller('httpController', function($scope, $http) {
+		
+		// Random fruit
+		   $http.get('ajax/getUsers.php').success(function(data){
+		   $scope.users=data; // este es el array de nombres recuperado del servidor
+		  });
+		
+	});
 	mailbusApp.controller('domainController', function($scope) {
 		$scope.message = 'Agregar modificar dominios';
 		

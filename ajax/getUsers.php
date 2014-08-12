@@ -1,8 +1,8 @@
 <?php
-
+header('Content-Type: application/json');
 echo '{"users":[
-    {"firstName":"John", "email":"Doe"}, 
-    {"firstName":"Anna", "email":"Smith"},
-    {"firstName":"Peter", "email":"Jones"}
+    {"id":"0" , "name":"John", "email":"Doe"}, 
+    {"id":"1" , "name":"Anna", "email":"Smith"},
+    {"id":"2" , "name":"Peter", "email":"Jones"}
 ]}';
 ?>
