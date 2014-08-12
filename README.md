@@ -1,4 +1,4 @@
 mailbus
 =======
 
-Panel de Administracion MTA (Postfix+Dovecto)
+Panel de Administracion RageMTA (Postfix+Dovecot) 
