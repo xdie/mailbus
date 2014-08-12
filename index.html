@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<!-- define angular app -->
+<html ng-app="mailbusApp">
+
+<head>
+  <!-- SCROLLS -->
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css" />
+
+  <!-- SPELLS -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.10/angular.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.10/angular-route.js"></script>
+  <script src="script.js"></script>
+</head>
+
+<!-- define angular controller -->
+<body ng-controller="mainController">
+
+  <nav class="navbar navbar-default">
+    <div class="container">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="/">Panel de administracion</a>
+      </div>
+
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#"><i class="fa fa-home"></i> Inicio</a></li>
+        <li><a href="#usuarios"><i class="fa fa-user"></i> Usuarios</a></li>
+        <li><a href="#dominios"><i class="fa fa-linux"></i> Dominios</a></li>
+        <li><a href="#estadisticas"><i class="fa fa-gavel"></i> Estadisticas</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div id="main">
+  
+    <!-- angular templating -->
+		<!-- this is where content will be injected -->
+    <div ng-view></div>
+    
+  </div>
+  
+  <footer class="text-center">
+    <p>Powered by Microbius IT Labs <a href="http://www.microbius.com.ar">Mailbuzz</a></p>
+  </footer>
+  
+</body>
+
+</html>
