@@ -40,14 +40,18 @@
 	mailbusApp.controller('userController', function($scope, $http) {
 		$scope.message = 'Agrega borrar y modificar usuarios';
 		// Random fruit
+		getUsers();
+		function getUsers(){
 		   $http.get('ajax/getUsers.php').success(function(data){
 		   $scope.users=data; // este es el array de nombres recuperado del servidor
 		   console.log(data); 
 		  });
-		$scope.deleteUser = function (user) {
-		if(confirm("Seguro que quiere borrar el usuario "+user+"? ")){
-			$http.get("ajax/deleteUser.php?ID="+id).success(function(data){
-			console.log(id); 
+		}
+		$scope.deleteUser = function (user, id) {
+		if(confirm("Seguro que quiere borrar el usuario "+user+id+"? ")){
+			$http.get("ajax/delUser.php?ID="+id).success(function(data){
+			console.log(id);
+			getUsers();
 			});
 			}
 			
