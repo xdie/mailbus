@@ -1,8 +1,22 @@
 <?php
 header('Content-Type: application/json');
-echo '[
-    {"id":"0" , "name":"John", "email":"john@pepepe.com", "status":"Activo"}, 
-    {"id":"1" , "name":"Anna", "email":"john@pdfgdfg.com", "status":"Inactivo"},
-    {"id":"2" , "name":"Peter", "email":"john@pedfge.com", "status":"Activo"}
-]';
+
+require_once '../inc/db.php'; // The mysql database connection script
+$status = '%';
+if(isset($_GET['status'])){
+$status = $_GET['status'];
+}
+$query="select ID, NAME, STATUS from tasks where status like '$status' order by status,id desc";
+$result = $mysqli->query($query) or die($mysqli->error.__LINE__);
+
+$arr = array();
+if($result->num_rows > 0) {
+	while($row = $result->fetch_assoc()) {
+		$arr[] = $row
+	}
+}
+
+# JSON-encode the response
+echo $json_response = json_encode($arr);
+
 ?>
