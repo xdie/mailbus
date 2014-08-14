@@ -47,9 +47,10 @@
 		$scope.deleteUser = function (user) {
 		if(confirm("Seguro que quiere borrar el usuario "+user+"? ")){
 			$http.get("ajax/deleteUser.php?ID="+id).success(function(data){
-		
+			console.log(id); 
 			});
 			}
+			
 		}	
 	});
 		
