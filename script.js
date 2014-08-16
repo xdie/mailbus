@@ -33,37 +33,45 @@
 	mailbusApp.controller('mainController', function($scope) {
 		// create a message to display in our view
 		$scope.message = 'Administracion del servidor Mailbuzz';
-		
-		
+	
 	});
 
 	mailbusApp.controller('userController', function($scope, $http) {
-		$scope.message = 'Agrega borrar y modificar usuarios';
-		// Random fruit
+		
+		$scope.master = {};
+		$scope.message = 'Agregar Usuario de Correo';
+		
+		// Obtenemos usuarios
 		getUsers();
 		function getUsers(){
 		   $http.get('ajax/getUsers.php').success(function(data){
-		   $scope.users=data; // este es el array de nombres recuperado del servidor
-		   console.log(data); 
+		   $scope.users=data; // este es el array de nombres recuperado del servidor en JSON
 		  });
 		}
 		$scope.deleteUser = function (user, id) {
-		if(confirm("Seguro que quiere borrar el usuario "+user+id+"? ")){
-			$http.get("ajax/delUser.php?ID="+id).success(function(data){
-			console.log(id);
-			getUsers();
-			});
+			if(confirm("Seguro que quiere borrar el usuario "+user+"? ")){
+				$http.get("ajax/delUser.php?ID="+id).success(function(data){
+					getUsers();
+				});
 			}
 			
-		}	
+		}
+		$scope.addUser = function (name,email,password) {
+			$http.get("ajax/addUser.php?user="+name+"&email="+email+"&password="+password+"&status=Activo").success(function(data){
+				$scope.reset();
+				getUsers();
+			});
+		}
+		// Funcion para resetear campos
+		$scope.reset = function() {
+			$scope.user = angular.copy($scope.master);
+		};
 	});
-		
-
+	
 	mailbusApp.controller('domainController', function($scope) {
-		$scope.message = 'Agregar modificar dominios';
-		
+		$scope.message = 'Agregar modificar dominios';	
 	});
+	
 	mailbusApp.controller('statsController', function($scope) {
 		$scope.message = 'Estaditicas generales, correos enviados la ultima hora, etc';
-		
 	});

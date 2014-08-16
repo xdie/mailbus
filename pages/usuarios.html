@@ -1,9 +1,16 @@
 
 <div class="jumbotron text-center">
-	<h3>Agregar otro Usuario</h3>
+	<h3>Administracion de Usuarios</h3>
 	  
 	<p>{{ message }}</p>
-
+ <form novalidate>
+    Nombre:
+      <input type="text" ng-model="user.name" required />
+    E-mail: <input type="email" ng-model="user.email" required />
+    Contraseña: <input type="password" ng-model="user.password"/>
+       
+    <button ng-click="addUser(user.name,user.email,user.password)">Agregar</button>
+  </form>
 </div>
 
 
@@ -17,19 +24,21 @@
                   <th>Activada</th>
                   <th>Acciones</th>
                 </tr>
-              </thead>
-              <tbody ng-repeat="user in users">
-	 </tr> <div ng-controller="userController">
-             
-		<tr>
+	      </thead>
+	    <tbody ng-repeat="user in users">
+		</tr>
+<div ng-controller="userController">
+	<tr>
                 <td>{{user.ID}}</td>
 		<td>{{user.NAME}}</td>
                 <td>{{user.EMAIL}}</td>
                 <td>{{user.STATUS}}</td>
-		<td><a ng-click="deleteUser(user.NAME,user.ID)" class="pull-center"><i class="glyphicon glyphicon-trash"></i></a></td>		  			
-                </tr>
-		</div>
-         
-
-                  </tbody>
+		<td>
+			<a ng-click="deleteUser(user.NAME,user.ID)" class="pull-center" title="Modificar Contraseña"><i class="glyphicon glyphicon-pencil"></i></a>
+			<a ng-click="deleteUser(user.NAME,user.ID)" class="pull-center" title="Activar/Desactivar Usuario"><i class="glyphicon glyphicon-flash"></i></a>
+			<a ng-click="deleteUser(user.NAME,user.ID)" class="pull-center" title="Borrar Usuario"><i class="glyphicon glyphicon-trash"></i></a>
+		</td>
+	</tr>
+</div>
+            </tbody>
             </table>
