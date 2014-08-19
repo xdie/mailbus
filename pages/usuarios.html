@@ -34,7 +34,9 @@
                 <td>{{user.STATUS}}</td>
 		<td>
 			<a ng-click="modifyPass(user.NAME,user.ID)" class="pull-center" title="Modificar Contraseña"><i class="glyphicon glyphicon-pencil"></i></a>
+			-
 			<a ng-click="updateUser(user.STATUS,user.ID)" class="pull-center" title="Activar/Desactivar Usuario"><i class="glyphicon glyphicon-flash"></i></a>
+			-
 			<a ng-click="deleteUser(user.NAME,user.ID)" class="pull-center" title="Borrar Usuario"><i class="glyphicon glyphicon-trash"></i></a>
 		</td>
 	</tr>
