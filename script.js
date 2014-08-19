@@ -62,10 +62,40 @@
 				getUsers();
 			});
 		}
+		$scope.updateUser = function (status, id) {
+			if (status == "Activo") {
+				
+				$http.get("ajax/updateUser.php?ID="+id+"&status="+"Inactivo").success(function(data){
+					getUsers();
+				});
+			
+			} else {
+			
+				$http.get("ajax/updateUser.php?ID="+id+"&status="+"Activo").success(function(data){
+					getUsers();
+				});
+				
+			}
+			
+		}
+		
+		$scope.modifyPass = function (user,id){
+			
+		var answer = prompt ("Por favor type la nueva clave para "+user,"passwordseguro");
+			if (answer){
+				
+				$http.get("ajax/modifyPass.php?ID="+id+"&password="+answer).success(function(data){
+				alert ("Se aplico el cambio de clave con exito! ")
+				});
+				
+			}
+	
+		}
 		// Funcion para resetear campos
 		$scope.reset = function() {
 			$scope.user = angular.copy($scope.master);
 		};
+	
 	});
 	
 	mailbusApp.controller('domainController', function($scope) {
